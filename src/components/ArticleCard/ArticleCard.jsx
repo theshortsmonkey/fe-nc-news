@@ -8,9 +8,9 @@ export const ArticleCard = ({ size, article }) => {
   const cardClass = `article-card article-card-${size}`
   return (
     <div className={cardClass}>
-      <p id="card-title">
-        <Link to={`/articles/${article.article_id}`}>{article.title}</Link>
-      </p>
+      <div id="card-title">
+      {size === 'small' ? <Link to={`/articles/${article.article_id}`}>{article.title}</Link> : <p id='title'>Title: {article.title}</p> }
+      </div>
       <p id="card-topic">Topic: {article.topic}</p>
       <p id="card-author">Author: {article.author}</p>
       {size === 'small' ? null : <p id="card-body">{article.body}</p>}

@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { getArticleById } from '../utils/api'
 import { ArticleCard } from './ArticleCard/ArticleCard'
 import { Loading } from './Loading'
+import { CommentsList } from './CommentsList'
 
 export const SingleArticle = () => {
   const { article_id } = useParams()
@@ -19,6 +20,7 @@ export const SingleArticle = () => {
   return (
     <article>
       {isLoading ? <Loading /> : <ArticleCard size='large' article={article} />}
+      <CommentsList article_id={article_id}/>
     </article>
   )
 }
