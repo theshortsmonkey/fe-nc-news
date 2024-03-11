@@ -1,0 +1,51 @@
+
+.article-card-small {
+  background-color: rgb(36, 33, 56);
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px skyblue;
+  display: grid;
+  grid-template-areas:
+    'title title title topic'
+    'title title title votes'
+    'author created created comments';
+  column-gap: 0.25rem;
+  row-gap: 0.25rem;
+  width: 50vw;
+  max-width: 20rem;
+  margin: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.5rem;
+
+}
+#card-title {
+  grid-area: title;
+}
+#card-topic {
+  grid-area: topic;
+  font-size: small;
+}
+#card-author {
+  grid-area: author;
+  font-size: small;
+}
+#card-body {
+  grid-area: body;
+}
+#card-created {
+  grid-area: created;
+  font-size: small;
+}
+#card-votes {
+  grid-area: votes;
+  p {
+    font-size: medium;
+  }
+  button {
+    font-size: medium;
+  }
+}
+#card-comments {
+  grid-area: comments;
+  font-size: small;
+}
