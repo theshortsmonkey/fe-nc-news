@@ -7,7 +7,7 @@ export const ArticlesList = ({ articlesList, articlesCount }) => {
     <div id="articles-list">
       {articlesList.map((article) => {
         return (
-          <ArticleCard size="small" article={article}/>
+          <ArticleCard key={article.title} size="small" article={article}/>
         )
       })}
     </div>
