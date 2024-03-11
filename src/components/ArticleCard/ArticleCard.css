@@ -1,9 +1,9 @@
-
-.article-card-small {
+.article-card {
   background-color: rgb(36, 33, 56);
   border-radius: 5px;
   box-shadow: 2px 2px 5px skyblue;
-  display: grid;
+}
+.article-card-small {
   grid-template-areas:
     'title title title topic'
     'title title title votes'
@@ -12,6 +12,22 @@
   row-gap: 0.25rem;
   width: 50vw;
   max-width: 20rem;
+  margin: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.5rem;
+
+}
+.article-card-large {
+  display: grid;
+  grid-template-areas:
+    'title title title topic'
+    'body body body votes'
+    'body body body delete'
+    'author created created comments';
+  column-gap: 0.25rem;
+  row-gap: 0.25rem;
+  width: 90vw;
   margin: 0.5rem;
   margin-left: auto;
   margin-right: auto;
@@ -31,6 +47,8 @@
 }
 #card-body {
   grid-area: body;
+  min-height: 10rem;
+  padding: 0.5rem;
 }
 #card-created {
   grid-area: created;
@@ -38,8 +56,10 @@
 }
 #card-votes {
   grid-area: votes;
+  display: flex;
+  flex-flow: column nowrap;
   p {
-    font-size: medium;
+    font-size: small;
   }
   button {
     font-size: medium;
@@ -48,4 +68,8 @@
 #card-comments {
   grid-area: comments;
   font-size: small;
+}
+#card-delete {
+  grid-area: delete;
+  font-size: medium;
 }
