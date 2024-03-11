@@ -24,9 +24,12 @@ export const ArticleCard = ({ size, article }) => {
           </>
         )}
       </div>
+      {size === 'small' ? null : (
+        <img id="card-img" src={article.article_img_url} alt="article image" />
+      )}
       {currUser.username === article.author ? (
         <div>
-        <button id="card-delete">Delete Article</button>
+          <button id="card-delete">Delete Article</button>
         </div>
       ) : null}
       <p id="card-comments">Comments: {article.comment_count}</p>
