@@ -9,6 +9,7 @@
   }
 }
 .article-card-small {
+  display: grid;
   grid-template-areas:
     'title title title topic'
     'title title title votes'
@@ -21,7 +22,12 @@
   margin-left: auto;
   margin-right: auto;
   padding: 0.5rem;
-
+  p {
+    font-size: 0.65rem;
+  }
+  a {
+    font-size: 1rem;
+  }
 }
 .article-card-large {
   display: grid;
@@ -39,18 +45,22 @@
   margin-left: auto;
   margin-right: auto;
   padding: 0.5rem;
-
+  p {
+    font-size: 0.9rem;
+  }
+  #title {
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
 }
 #card-title {
   grid-area: title;
 }
 #card-topic {
   grid-area: topic;
-  font-size: small;
 }
 #card-author {
   grid-area: author;
-  font-size: small;
 }
 #card-body {
   grid-area: body;
@@ -59,26 +69,17 @@
 }
 #card-created {
   grid-area: created;
-  font-size: small;
 }
 #card-votes {
   grid-area: votes;
   display: flex;
   flex-flow: column nowrap;
-  p {
-    font-size: small;
-  }
-  button {
-    font-size: medium;
-  }
 }
 #card-comments {
   grid-area: comments;
-  font-size: small;
 }
 #card-delete {
   grid-area: delete;
-  font-size: medium;
   width: 80%;
   height: 50%;
   margin: 0.5rem auto 0.5rem;

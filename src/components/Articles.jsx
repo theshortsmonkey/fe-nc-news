@@ -9,6 +9,7 @@ export const Articles = () => {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
+    setIsLoading(true)
     getArticles().then((data) => {
       setArticlesCount(data.total_count)
       setArticlesList(data.articles)
