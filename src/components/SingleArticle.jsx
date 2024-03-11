@@ -19,7 +19,7 @@ export const SingleArticle = () => {
   },[])
   return (
     <article>
-    {isLoading ? <Loading /> : <ArticleCard size='large' article={article} setArticle={setArticle} />}
+      {isLoading ? <Loading /> : <ArticleCard size='large' article={article} />}
       <CommentsList article_id={article_id}/>
     </article>
   )
