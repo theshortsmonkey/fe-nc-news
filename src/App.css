@@ -1,5 +1,85 @@
 * {
-  margin: 0 auto;
-  padding: 2rem;
+  margin: 0rem;
+  padding: 0%;
   text-align: center;
+  background-color: rgb(22, 19, 38);
+  color: azure;
+  font-size: x-large;
+}
+
+header {
+  background-color: rgb(22, 19, 38);
+  border: 2px dotted green;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 4rem;
+  z-index: 100;
+  nav {
+    display: flex;
+    flex-flow: row;
+    border: 2px solid azure;
+    border-radius: 10px;
+    padding: 0.25rem;
+    width: 80%;
+    margin: 0.5rem auto 0.5rem;
+    a {
+      text-decoration: none;
+      color: azure;
+    }
+    a:hover {
+      background-color: lightgreen;
+    }
+    p {
+      margin: auto;
+    }
+    img {
+      width: 3rem;
+      border: 2px dotted azure;
+      border-radius: 5px;
+    }
+  }
+}
+#footer-div {
+  background-color: rgb(22, 19, 38);
+  border: 2px dotted green;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 2rem;
+  z-index: 100;
+  footer {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    border: 2px solid azure;
+    border-radius: 10px;
+    padding: 0.2rem;
+    width: 80%;
+    margin: 0.1rem auto 0.1rem;
+  }
+  p {
+    margin: auto;
+  }
+}
+#main-content {
+  margin-top: 5rem;
+}
+#main-content::after {
+  content: '';
+  display: block;
+  height: 2rem;
+}
+#articles-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  row-gap: 0.5rem;
+  margin-top: 3rem;
+  background-color: rgb(22, 19, 38);
 }
