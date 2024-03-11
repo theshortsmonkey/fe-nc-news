@@ -26,12 +26,12 @@
 .article-card-large {
   display: grid;
   grid-template-areas:
-    'title title title topic'
+    'title title title votes'
     'body body body votes'
-    'body body body votes'
-    'body body body votes'
+    'body body body img'
+    'body body body img'
     'body body body delete'
-    'author created created comments';
+    'created author topic comments';
   column-gap: 0.25rem;
   row-gap: 0.25rem;
   width: 90vw;
@@ -82,4 +82,7 @@
   width: 80%;
   height: 50%;
   margin: 0.5rem auto 0.5rem;
+}
+#card-img {
+  width: 100%;
 }
