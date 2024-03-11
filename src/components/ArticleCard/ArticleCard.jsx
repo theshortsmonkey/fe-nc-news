@@ -2,8 +2,9 @@ import { Link } from 'react-router-dom'
 import './ArticleCard.css'
 import { useContext } from 'react'
 import { CurrUserContext } from '../../contexts/CurrUser'
+import { ArticleVoteButtons } from '../ArticleVoteButtons/ArticleVoteButtons'
 
-export const ArticleCard = ({ size, article }) => {
+export const ArticleCard = ({ size, article,setArticle }) => {
   const { currUser } = useContext(CurrUserContext)
   const cardClass = `article-card article-card-${size}`
   return (
@@ -17,11 +18,7 @@ export const ArticleCard = ({ size, article }) => {
       <p id="card-created">Created at: {article.created_at}</p>
       <div id="card-votes">
         <p>Total Votes: {article.votes}</p>
-        {size === 'small' ? null : (
-          <>
-            <button>Up Vote</button>
-            <button>Down Vote</button>
-          </>
+        {size === 'small' ? null : (<ArticleVoteButtons article_id={article.article_id} setArticle={setArticle}/>
         )}
       </div>
       {size === 'small' ? null : (
