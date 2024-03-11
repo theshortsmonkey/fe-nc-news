@@ -25,7 +25,9 @@ export const ArticleCard = ({ size, article }) => {
         )}
       </div>
       {currUser.username === article.author ? (
+        <div>
         <button id="card-delete">Delete Article</button>
+        </div>
       ) : null}
       <p id="card-comments">Comments: {article.comment_count}</p>
     </div>
