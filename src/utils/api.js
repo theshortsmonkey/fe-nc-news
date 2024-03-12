@@ -4,9 +4,9 @@ const ncNewsApi = axios.create({
   baseURL: 'https://nc-news-gyvj.onrender.com/api/'
 })
 
-export const getArticles =  (topic) => {
+export const getArticles =  (topic,sort_by,order) => {
   if (topic === "All") topic = "";
-  const queryObj = {params: {topic}}
+  const queryObj = {params: {topic,sort_by,order}}
   return ncNewsApi.get(`articles`,queryObj).then((res) => res.data)
 }
 

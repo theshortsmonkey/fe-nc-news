@@ -11,3 +11,7 @@ export const formatDate = (string) => {
   }
   return newDate.toLocaleDateString('en-GB', options)
 }
+
+export const captiliseFirstLetter = (string) => {
+  return string[0].toUpperCase() + string.slice(1)
+}
