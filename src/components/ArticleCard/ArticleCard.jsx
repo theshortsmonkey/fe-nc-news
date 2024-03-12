@@ -3,6 +3,7 @@ import './ArticleCard.css'
 import { useContext } from 'react'
 import { CurrUserContext } from '../../contexts/CurrUser'
 import { ArticleVoteButtons } from '../ArticleVoteButtons/ArticleVoteButtons'
+import { formatDate } from '../../utils/utils'
 
 export const ArticleCard = ({ size, article,setArticle }) => {
   const { currUser } = useContext(CurrUserContext)
@@ -15,7 +16,7 @@ export const ArticleCard = ({ size, article,setArticle }) => {
       <p id="card-topic">Topic: {article.topic}</p>
       <p id="card-author">Author: {article.author}</p>
       {size === 'small' ? null : <p id="card-body">{article.body}</p>}
-      <p id="card-created">Created at: {article.created_at}</p>
+      <p id="card-created">Created: {formatDate(article.created_at)}</p>
       <div id="card-votes">
         <p>Total Votes: {article.votes}</p>
         {size === 'small' ? null : (<ArticleVoteButtons article_id={article.article_id} setArticle={setArticle}/>
