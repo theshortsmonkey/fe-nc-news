@@ -23,3 +23,7 @@ export const patchArticlesById = (articleId,body) => {
 export const postCommentByArticleId = (articleId,body) => {
   return ncNewsApi.post(`articles/${articleId}/comments`,body).then((res) => res.data)
 }
+
+export const deleteCommentById = (commentId) => {
+  return ncNewsApi.delete(`comments/${commentId}`).then((res) => res)
+}
