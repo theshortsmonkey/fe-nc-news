@@ -16,6 +16,7 @@ export const PostComment = ({article_id,setCommentsList}) => {
       username: currUser.username,
       body: commentBody
     }
+    setIsFormVisible(false)
     postCommentByArticleId(article_id,body).then((data) => {
       setCommentsList((curr) => {
         const postedComment =data.postedComment
@@ -23,10 +24,11 @@ export const PostComment = ({article_id,setCommentsList}) => {
         const copyList = [postedComment,...curr]
         return copyList
       })
+      setIsFormVisible(true)
     })
   }
 
-  return (
+  return isFormVisible ? (
     <form id="post-comment-form" onSubmit={handleSubmit}>
       <label htmlFor="comment-input" id="comment-input-label">
         Your Comment
@@ -45,5 +47,5 @@ export const PostComment = ({article_id,setCommentsList}) => {
         value="Post Comment"
       ></input>
     </form>
-  )
+  ) : <p>Posting Comment...</p>
 }
