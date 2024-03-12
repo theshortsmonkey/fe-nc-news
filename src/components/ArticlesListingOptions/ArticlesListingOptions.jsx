@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import { captiliseFirstLetter } from '../../utils/utils'
 import './ArticlesListingOptions.css'
+import { useLocation } from 'react-router-dom'
 
 const defaultSelectedSortButton = {
   date: true,
   title: false,
   topic: false,
   author: false,
-  'comment count': true,
   votes: false,
 }
 
@@ -16,7 +16,22 @@ export const ArticlesListingOptions = ({ setSortBy,setSortOrder }) => {
     defaultSelectedSortButton
   )
   const [isOrderDescending, setIsOrderDescending] = useState(true)
-
+  const { pathname } = useLocation()
+  const isTopicEndpoint = (/(?!\/)(topics)/).test(pathname)
+  
+  function sortButtonCreate (button) {
+    if (isTopicEndpoint && button === 'topic') { return null }
+    return (
+      <button
+        key={button}
+        className="sort-by-button"
+        disabled={selectedSortButton[button]}
+        onClick={(e) => handleSortClick(e, button)}
+      >
+        {captiliseFirstLetter(button)}
+      </button>
+    )
+  }
   function handleSortClick(e, button) {
     e.preventDefault()
     setSelectedSortButton(() => {
@@ -39,16 +54,7 @@ export const ArticlesListingOptions = ({ setSortBy,setSortOrder }) => {
       <div id="sort-buttons">
         <p>Sort Articles by:</p>
         {Object.keys(selectedSortButton).map((button) => {
-          return (
-            <button
-              key={button}
-              className="sort-by-button"
-              disabled={selectedSortButton[button]}
-              onClick={(e) => handleSortClick(e, button)}
-            >
-              {captiliseFirstLetter(button)}
-            </button>
-          )
+          return sortButtonCreate(button)
         })}
       </div>
       <div id="order-buttons">
