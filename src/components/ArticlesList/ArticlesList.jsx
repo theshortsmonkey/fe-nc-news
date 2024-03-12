@@ -1,4 +1,5 @@
-import { ArticleCard } from './ArticleCard/ArticleCard'
+import './ArticlesList.css'
+import { ArticleCard } from '../ArticleCard/ArticleCard'
 
 export const ArticlesList = ({ articlesList,topic }) => {
   let topicDisplay = 'topic'

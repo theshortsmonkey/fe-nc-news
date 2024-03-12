@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { TopicSelection } from './TopicSelection/TopicSelection'
 import { useParams } from 'react-router-dom'
 import { getArticles } from '../utils/api'
-import { ArticlesList } from './ArticlesList'
+import { ArticlesList } from './ArticlesList/ArticlesList'
 import { Loading } from './Loading'
 
 export const Topics = () => {
