@@ -24,6 +24,7 @@ export const PostComment = ({article_id,setCommentsList}) => {
         const copyList = [postedComment,...curr]
         return copyList
       })
+      setCommentBody('')
       setIsFormVisible(true)
     })
   }
