@@ -5,10 +5,11 @@ import { getArticles } from '../utils/api'
 import { ArticlesList } from './ArticlesList/ArticlesList'
 import { Loading } from './Loading'
 import { ArticlesListingOptions } from './ArticlesListingOptions/ArticlesListingOptions'
+import { ErrorComponent } from './ErrorComponent'
 
 export const Topics = () => {
   const { topic_slug } = useParams()
-  const [searchParams,setSearchParams] = useSearchParams()
+  const [searchParams, setSearchParams] = useSearchParams()
   const [currTopic, setCurrentTopic] = useState({
     slug: topic_slug,
     description: '',
@@ -17,6 +18,7 @@ export const Topics = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [sortBy, setSortBy] = useState(null)
   const [sortOrder, setSortOrder] = useState(null)
+  const [error, setError] = useState(null)
 
   useEffect(() => {
     setCurrentTopic({ slug: topic_slug, description: '' })
@@ -27,10 +29,12 @@ export const Topics = () => {
     const queryObj = {}
     if (sortBy) queryObj.sort_by = sortBy
     if (sortOrder) queryObj.order = sortOrder
-    getArticles({topic: currTopic.slug,...queryObj}).then((data) => {
-      setArticlesList(data.articles)
-      setIsLoading(false)
-    })
+    getArticles({ topic: currTopic.slug, ...queryObj })
+      .then((data) => {
+        setArticlesList(data.articles)
+        setIsLoading(false)
+      })
+      .catch((err) => setError(err.response))
     setSearchParams(queryObj)
   }, [currTopic, sortOrder, sortBy])
 
@@ -51,12 +55,14 @@ export const Topics = () => {
   }
 
   return (
-    <section id="topics-section">
-      {currTopic.slug ? (
-        loadArticlesList()
-      ) : (
-        <TopicSelection setCurrentTopic={setCurrentTopic} />
-      )}
-    </section>
+    <ErrorComponent error={error}>
+      <section id="topics-section">
+        {currTopic.slug ? (
+          loadArticlesList()
+        ) : (
+          <TopicSelection setCurrentTopic={setCurrentTopic} />
+        )}
+      </section>
+    </ErrorComponent>
   )
 }
