@@ -5,13 +5,11 @@ import { Loading } from "./Loading"
 
 export const Articles = () => {
   const [articlesList, setArticlesList] = useState([])
-  const [articlesCount, setArticlesCount] = useState(0)
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     setIsLoading(true)
-    getArticles().then((data) => {
-      setArticlesCount(data.total_count)
+    getArticles('All').then((data) => {
       setArticlesList(data.articles)
       setIsLoading(false)
     })
@@ -19,9 +17,8 @@ export const Articles = () => {
 
   return (
     <section id="articles-section">
-      <h2>Articles</h2>
       {isLoading ?  <Loading/> : (
-      <ArticlesList articlesList={articlesList} articlesCount={articlesCount}/>
+      <ArticlesList articlesList={articlesList} topic='All'/>
       ) }
     </section>
   )
