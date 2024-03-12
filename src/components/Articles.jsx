@@ -16,8 +16,8 @@ export const Articles = () => {
     setIsLoading(true)
     const queryObj = {}
     if (sortBy) queryObj.sort_by = sortBy
-    if (sortOrder) queryObj.sort_order = sortOrder
-    getArticles({topic: 'All',...queryObj}).then((data) => {
+    if (sortOrder) queryObj.order = sortOrder
+    getArticles({topic: '',...queryObj}).then((data) => {
       setArticlesList(data.articles)
       setIsLoading(false)
     })
