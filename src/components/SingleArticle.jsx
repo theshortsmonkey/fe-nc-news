@@ -16,11 +16,17 @@ export const SingleArticle = () => {
       setArticle(data.article)
       setIsLoading(false)
     })
-  },[])
+  }, [])
   return (
     <article>
-    {isLoading ? <Loading /> : <ArticleCard size='large' article={article} setArticle={setArticle} />}
-      <CommentsList article_id={article_id}/>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <>
+          <ArticleCard size="large" article={article} setArticle={setArticle} />
+          <CommentsList article_id={article_id} />
+        </>
+      )}
     </article>
   )
 }
