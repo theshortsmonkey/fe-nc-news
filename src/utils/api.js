@@ -6,8 +6,8 @@ const ncNewsApi = axios.create({
 
 export const getArticles =  (topic) => {
   if (topic === "All") topic = "";
-  const query = topic ? `?topic=${topic}` : "";
-  return ncNewsApi.get(`articles${query}`).then((res) => res.data)
+  const queryObj = {params: {'topic': topic }}
+  return ncNewsApi.get(`articles`,queryObj).then((res) => res.data)
 }
 
 export const getArticleById = (articleId) => {
