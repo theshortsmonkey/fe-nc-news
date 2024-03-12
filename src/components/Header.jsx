@@ -8,8 +8,8 @@ export const Header = () => {
     <header>
     <nav>
       <p><Link to='/'>Articles</Link></p>
-      <p><Link to='/'>Topics</Link></p>
-      <p><Link to='/'>User</Link></p>
+      <p><Link to='/topics'>Topics</Link></p>
+      <p><Link to='/user'>User</Link></p>
       <img id="nav-img" src={currUser.avatar_url} alt="user avatar"/>
     </nav>
     </header>
