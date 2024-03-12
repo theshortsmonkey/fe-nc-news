@@ -1,0 +1,17 @@
+#post-comment-form {
+  display: flex;
+  flex-flow: column wrap;
+  align-content: center;
+  padding: 0.5rem;
+  margin: 0.25rem;
+}
+#comment-input {
+  font-size: medium;
+  width: 70vw;
+  max-width: 800px;
+}
+#submit-comment-button {
+  width: 35vw;
+  max-width: 400px;
+  align-self: center;
+}

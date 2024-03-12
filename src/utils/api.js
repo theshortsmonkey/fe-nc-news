@@ -19,3 +19,7 @@ export const getCommentsByArticleId = (articleId) => {
 export const patchArticlesById = (articleId,body) => {
   return ncNewsApi.patch(`articles/${articleId}`,body).then((res) => res.data)
 }
+
+export const postCommentByArticleId = (articleId,body) => {
+  return ncNewsApi.post(`articles/${articleId}/comments`,body).then((res) => res.data)
+}
