@@ -1,9 +1,10 @@
 import { ArticleCard } from './ArticleCard/ArticleCard'
 
-export const ArticlesList = ({ articlesList, articlesCount }) => {
+export const ArticlesList = ({ articlesList,topic }) => {
   return (
     <>
-    <p>Total Articles = {articlesCount}</p>
+    <p>Listing articles for the {topic}</p>
+    <p>Total Articles = {articlesList.length}</p>
     <div id="articles-list">
       {articlesList.map((article) => {
         return (

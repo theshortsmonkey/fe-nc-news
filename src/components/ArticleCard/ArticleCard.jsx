@@ -25,7 +25,7 @@ export const ArticleCard = ({ size, article,setArticle }) => {
       {size === 'small' ? null : (
         <img id="card-img" src={article.article_img_url} alt="article image" />
       )}
-      {currUser.username === article.author ? (
+      {(currUser.username === article.author && size !== 'small') ? (
         <div>
           <button id="card-delete">Delete Article</button>
         </div>
