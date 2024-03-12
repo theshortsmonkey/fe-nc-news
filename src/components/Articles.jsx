@@ -3,19 +3,25 @@ import { ArticlesList } from "./ArticlesList/ArticlesList"
 import { getArticles } from "../utils/api"
 import { Loading } from "./Loading"
 import { ArticlesListingOptions } from "./ArticlesListingOptions/ArticlesListingOptions"
+import { useSearchParams } from "react-router-dom"
 
 export const Articles = () => {
   const [articlesList, setArticlesList] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [sortBy, setSortBy] = useState(null)
   const [sortOrder, setSortOrder] = useState(null)
+  const [searchParams,setSearchParams] = useSearchParams()
 
   useEffect(() => {
     setIsLoading(true)
-    getArticles('All',sortBy,sortOrder).then((data) => {
+    const queryObj = {}
+    if (sortBy) queryObj.sort_by = sortBy
+    if (sortOrder) queryObj.sort_order = sortOrder
+    getArticles({topic: 'All',...queryObj}).then((data) => {
       setArticlesList(data.articles)
       setIsLoading(false)
     })
+    setSearchParams(queryObj)
   },[sortBy,sortOrder])
 
   return (
