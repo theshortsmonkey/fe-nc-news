@@ -8,13 +8,16 @@ import { SingleArticle } from './components/Articles/SingleArticle';
 import { Topics } from './components/Topics/Topics';
 import { User } from './components/User/User';
 import { CurrUserProvider } from './contexts/CurrUser'
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { TopicsSideBar } from './components/SideBars/TopicsSideBar';
 import { ArticlesSideBar } from './components/SideBars/ArticlesSideBar';
 
 function App() {
   const [width, setWidth] = useState(window.innerWidth)
+  const { pathname } = useLocation()
+  const [isTopicEndpoint,setIsTopicEndpoint] = useState((/(?!\/)(topics)/).test(pathname))
+
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth)
     window.addEventListener('resize', handleResize)
@@ -23,11 +26,15 @@ function App() {
       window.removeEventListener('resize', handleResize)
     }
   },[])
+
+  useEffect(() => {
+    setIsTopicEndpoint((/(?!\/)(topics)$/).test(pathname))
+  },[pathname])
   return (
     <CurrUserProvider>
       <Header/>
       <div id="main-content">
-        {width>1000 ? <TopicsSideBar /> : null}
+        {width>1000 && !isTopicEndpoint ? <TopicsSideBar /> : null}
         <div id='main-div'>
         <Routes>
           <Route path='/' element={<Home/>} />
