@@ -42,11 +42,11 @@ export const PostComment = ({article_id,setCommentsList}) => {
         value={commentBody}
         onChange={(e)=>{setCommentBody(e.target.value)}}
       ></textarea>
-      <input
+      {currUser.username ? <input
         id="submit-comment-button"
         type="submit"
         value="Post Comment"
-      ></input>
+      ></input> : <p>You need to be logged in to post a comment</p>}
     </form>
   ) : <p>Posting Comment...</p>
 }

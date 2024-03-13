@@ -1,5 +1,6 @@
 import './App.css'
 import { Articles } from './components/Articles';
+import { ErrorComponent } from './components/ErrorComponent';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header'
 import { SingleArticle } from './components/SingleArticle';
@@ -19,6 +20,7 @@ function App() {
           <Route path='/articles/:article_id' element={<SingleArticle/>} />
           <Route path='/topics' element={<Topics/>} />
           <Route path='/topics/:topic_slug' element={<Topics/>} />
+          <Route path="*" element={<ErrorComponent route='not found'/>} />
         </Routes>
       </div>
       <Footer/>
