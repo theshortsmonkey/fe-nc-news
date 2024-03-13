@@ -3,8 +3,8 @@ import { useParams } from 'react-router-dom'
 import { getArticleById } from '../../utils/api'
 import { ArticleCard } from './ArticleCard/ArticleCard'
 import { Loading } from '../Loading'
-import { CommentsList } from '../CommentsList'
-import { PostComment } from '../PostComment/PostComment'
+import { CommentsList } from '../Comments/CommentsList'
+import { PostComment } from '../Comments/PostComment/PostComment'
 import { ErrorComponent } from '../ErrorComponent'
 
 export const SingleArticle = () => {
