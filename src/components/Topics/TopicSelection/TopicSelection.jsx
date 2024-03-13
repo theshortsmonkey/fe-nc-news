@@ -19,7 +19,7 @@ export const TopicSelection = ({ setCurrentTopic }) => {
 
   function handleClick(e, topic) {
     e.preventDefault()
-    setCurrentTopic(topic)
+    if (setCurrentTopic) setCurrentTopic(topic)
     navigate(`/topics/${topic.slug}`)
   }
   return (

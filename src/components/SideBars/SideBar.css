@@ -1,0 +1,22 @@
+.sidebar {
+  width: 100%;
+  height: 100%;
+  border: 2px dashed green;
+}
+
+#topics-sidebar {
+  grid-area: topics;
+  justify-content: center;
+}
+
+#articles-sidebar {
+  grid-area: articles;
+}
+
+.sidebar-link {
+  border: 2px dashed red;
+  margin: 0.5rem;
+  a {
+    font-size: 0.75rem;
+  }
+}
