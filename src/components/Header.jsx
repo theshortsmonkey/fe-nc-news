@@ -3,6 +3,7 @@ import { CurrUserContext } from "../contexts/CurrUser"
 import { Link, useLocation } from "react-router-dom"
 
 const blankHighlightsObj = {
+  home: '',
   articles: '',
   topics: '',
   user: ''
@@ -23,6 +24,7 @@ export const Header = () => {
   return (
     <header>
     <nav>
+      <p className={currPageHighlights.home}><Link to='/'>Home</Link></p>
       <p className={currPageHighlights.articles}><Link to='/articles'>Articles</Link></p>
       <p className={currPageHighlights.topics}><Link to='/topics'>Topics</Link></p>
       <p className={currPageHighlights.user}><Link to='/user'>User</Link></p>

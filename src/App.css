@@ -7,6 +7,13 @@
   font-size: x-large;
 }
 
+#home {
+  h1 {
+    font-size: 2rem;
+    margin: 1rem;
+  }
+}
+
 header {
   background-color: rgb(22, 19, 38);
   border: 2px dotted green;
