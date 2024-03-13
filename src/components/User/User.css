@@ -1,0 +1,28 @@
+#user-page {
+  display: grid;
+  grid-template-areas: 
+  'header header header'
+  'details img img'
+  'content content content';
+  h2 {
+    grid-area: header;
+    margin: 0.25rem auto 0.25rem;
+  }
+  #user-details {
+    grid-area: details;
+    margin: 0.25rem auto 0.25rem;
+  }
+  #avatar {
+    grid-area: img;
+    margin: 0.25rem auto 0.25rem;
+  }
+  #user-content {
+    grid-area: content;
+    display: flex;
+    flex-flow: row wrap;
+    column-gap: 0.5rem;
+    row-gap: 0.5rem;
+    justify-content: center;
+    margin: 0.5rem auto 0.5rem;
+  }
+}

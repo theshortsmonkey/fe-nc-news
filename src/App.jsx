@@ -6,6 +6,7 @@ import { Header } from './components/Header'
 import { Home } from './components/Home';
 import { SingleArticle } from './components/SingleArticle';
 import { Topics } from './components/Topics';
+import { User } from './components/User/User';
 import { CurrUserProvider } from './contexts/CurrUser'
 import { Routes, Route } from "react-router-dom";
 
@@ -21,6 +22,7 @@ function App() {
           <Route path='/articles/:article_id' element={<SingleArticle/>} />
           <Route path='/topics' element={<Topics/>} />
           <Route path='/topics/:topic_slug' element={<Topics/>} />
+          <Route path='/user' element={<User />} />
           <Route path="*" element={<ErrorComponent route='not found'/>} />
         </Routes>
       </div>
