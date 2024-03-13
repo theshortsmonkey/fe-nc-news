@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import './PostComment.css'
-import { postCommentByArticleId } from '../../utils/api'
+import { postCommentByArticleId } from '../../../utils/api'
 import { useContext } from 'react'
-import { CurrUserContext } from '../../contexts/CurrUser'
-import { formatDate } from '../../utils/utils'
+import { CurrUserContext } from '../../../contexts/CurrUser'
+import { formatDate } from '../../../utils/utils'
 
 export const PostComment = ({article_id,setCommentsList}) => {
   const [commentBody, setCommentBody] = useState('')

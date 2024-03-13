@@ -1,8 +1,8 @@
 import { useContext, useState } from 'react'
-import { CurrUserContext } from '../../contexts/CurrUser'
+import { CurrUserContext } from '../../../contexts/CurrUser'
 import './CommentCard.css'
-import { formatDate } from '../../utils/utils'
-import { deleteCommentById } from '../../utils/api'
+import { formatDate } from '../../../utils/utils'
+import { deleteCommentById } from '../../../utils/api'
 
 export const CommentCard = ({ comment }) => {
   const { currUser } = useContext(CurrUserContext)

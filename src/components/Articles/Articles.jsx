@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { ArticlesList } from "./ArticlesList/ArticlesList"
-import { getArticles } from "../utils/api"
-import { Loading } from "./Loading"
+import { getArticles } from "../../utils/api"
+import { Loading } from "../Loading"
 import { ArticlesListingOptions } from "./ArticlesListingOptions/ArticlesListingOptions"
 import { useSearchParams } from "react-router-dom"
 

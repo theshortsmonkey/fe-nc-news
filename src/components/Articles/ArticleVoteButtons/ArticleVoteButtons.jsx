@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { patchArticlesById } from '../../utils/api'
+import { patchArticlesById } from '../../../utils/api'
 
 export const ArticleVoteButtons = ({ article_id, setArticle }) => {
   const [isVoteSubmitted, setIsVoteSubmitted] = useState(false)

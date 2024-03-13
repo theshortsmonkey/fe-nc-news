@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
 import './ArticleCard.css'
 import { useContext } from 'react'
-import { CurrUserContext } from '../../contexts/CurrUser'
+import { CurrUserContext } from '../../../contexts/CurrUser'
 import { ArticleVoteButtons } from '../ArticleVoteButtons/ArticleVoteButtons'
-import { formatDate } from '../../utils/utils'
+import { formatDate } from '../../../utils/utils'
 
 export const ArticleCard = ({ size, article,setArticle }) => {
   const { currUser } = useContext(CurrUserContext)

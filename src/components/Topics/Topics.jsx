@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 import { TopicSelection } from './TopicSelection/TopicSelection'
 import { useParams, useSearchParams } from 'react-router-dom'
-import { getArticles } from '../utils/api'
-import { ArticlesList } from './ArticlesList/ArticlesList'
-import { Loading } from './Loading'
-import { ArticlesListingOptions } from './ArticlesListingOptions/ArticlesListingOptions'
-import { ErrorComponent } from './ErrorComponent'
+import { getArticles } from '../../utils/api'
+import { ArticlesList } from '../Articles/ArticlesList/ArticlesList'
+import { Loading } from '../Loading'
+import { ArticlesListingOptions } from '../Articles/ArticlesListingOptions/ArticlesListingOptions'
+import { ErrorComponent } from '../ErrorComponent'
 
 export const Topics = () => {
   const { topic_slug } = useParams()

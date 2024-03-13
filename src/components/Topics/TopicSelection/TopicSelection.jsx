@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import './TopicSelection.css'
-import { getTopics } from '../../utils/api'
+import { getTopics } from '../../../utils/api'
 import { useNavigate } from 'react-router-dom'
-import { Loading } from '../Loading'
+import { Loading } from '../../Loading'
 
 export const TopicSelection = ({ setCurrentTopic }) => {
   const [topicsList, setTopicsList] = useState([])

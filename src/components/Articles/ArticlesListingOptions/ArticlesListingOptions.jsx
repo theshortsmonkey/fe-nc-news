@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { captiliseFirstLetter } from '../../utils/utils'
+import { captiliseFirstLetter } from '../../../utils/utils'
 import './ArticlesListingOptions.css'
 import { useLocation } from 'react-router-dom'
 
@@ -17,10 +17,12 @@ export const ArticlesListingOptions = ({ setSortBy,setSortOrder }) => {
   )
   const [isOrderDescending, setIsOrderDescending] = useState(true)
   const { pathname } = useLocation()
-  const isTopicEndpoint = (/(?!\/)(topics)/).test(pathname)
+  const [isTopicEndpoint] = useState((/(?!\/)(topics)/).test(pathname))
+  const [isUserEndpoint] = useState((/(?!\/)(user)/).test(pathname))
   
   function sortButtonCreate (button) {
     if (isTopicEndpoint && button === 'topic') { return null }
+    if (isUserEndpoint && button === 'author') { return null }
     return (
       <button
         key={button}

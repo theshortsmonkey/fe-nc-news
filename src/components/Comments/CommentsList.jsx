@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import { getCommentsByArticleId } from '../utils/api'
+import { getCommentsByArticleId } from '../../utils/api'
 import { CommentCard } from './CommentCard/CommentCard'
-import { Loading } from './Loading'
+import { Loading } from '../Loading'
 
 export const CommentsList = ({ article_id,commentsList, setCommentsList }) => {
   const [isLoading, setIsLoading] = useState(true)
