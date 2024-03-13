@@ -3,6 +3,7 @@ import { Articles } from './components/Articles';
 import { ErrorComponent } from './components/ErrorComponent';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header'
+import { Home } from './components/Home';
 import { SingleArticle } from './components/SingleArticle';
 import { Topics } from './components/Topics';
 import { CurrUserProvider } from './contexts/CurrUser'
@@ -15,7 +16,7 @@ function App() {
       <Header/>
       <div id="main-content">
         <Routes>
-          <Route path='/' element={<Articles/>} />
+          <Route path='/' element={<Home/>} />
           <Route path='/articles' element={<Articles/>} />
           <Route path='/articles/:article_id' element={<SingleArticle/>} />
           <Route path='/topics' element={<Topics/>} />
