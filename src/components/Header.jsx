@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import { CurrUserContext } from "../contexts/CurrUser"
 import { Link, useLocation } from "react-router-dom"
+import { UserList } from "./User/UserList"
 
 const blankHighlightsObj = {
   home: '',
@@ -28,7 +29,13 @@ export const Header = () => {
       <p className={currPageHighlights.articles}><Link to='/articles'>Articles</Link></p>
       <p className={currPageHighlights.topics}><Link to='/topics'>Topics</Link></p>
       <p className={currPageHighlights.user}><Link to='/user'>User</Link></p>
+      <div className="dropdown">
+      <p>Click to change user</p>
       <img id="nav-img" src={currUser.avatar_url} alt="user avatar"/>
+      <div className="dropdown-content">
+        <UserList></UserList>
+      </div>
+      </div>
     </nav>
     </header>
   )
