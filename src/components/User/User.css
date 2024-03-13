@@ -26,3 +26,7 @@
     margin: 0.5rem auto 0.5rem;
   }
 }
+
+#user-articles {
+ max-width: 800px; 
+}
