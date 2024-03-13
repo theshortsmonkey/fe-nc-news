@@ -52,7 +52,8 @@ header {
       padding: 0.25rem;
     }
     #user-change {
-      height: 2.5rem;
+      margin: 0.1rem auto 0.1rem;
+      max-height: 2.5rem;
     }
   }
 }
