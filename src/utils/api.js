@@ -32,3 +32,7 @@ export const deleteCommentById = (commentId) => {
 export const getTopics = () => {
   return ncNewsApi.get('topics').then((res) => res.data)
 }
+
+export const getUsers = () => {
+  return ncNewsApi.get('users').then((res) => res.data)
+}

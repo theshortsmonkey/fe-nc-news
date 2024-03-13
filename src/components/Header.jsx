@@ -1,42 +1,51 @@
-import { useContext, useEffect, useState } from "react"
-import { CurrUserContext } from "../contexts/CurrUser"
-import { Link, useLocation } from "react-router-dom"
-import { UserList } from "./User/UserList"
+import { useContext, useEffect, useState } from 'react'
+import { CurrUserContext } from '../contexts/CurrUser'
+import { Link, useLocation } from 'react-router-dom'
+import { UserList } from './User/UserList'
 
 const blankHighlightsObj = {
   home: '',
   articles: '',
   topics: '',
-  user: ''
+  user: '',
 }
 
 export const Header = () => {
-  const [currPageHighlights,setCurrPageHighlights] = useState(blankHighlightsObj)
-  const {currUser} = useContext(CurrUserContext)
+  const [currPageHighlights, setCurrPageHighlights] =
+    useState(blankHighlightsObj)
+  const { currUser } = useContext(CurrUserContext)
   const { pathname } = useLocation()
   useEffect(() => {
     const affectedLink = pathname.match(/(?!\/)(\w*)/)[0]
     setCurrPageHighlights(() => {
-      const newObj = {...blankHighlightsObj}
+      const newObj = { ...blankHighlightsObj }
       newObj[affectedLink] = 'highlight'
       return newObj
     })
-  },[pathname])
+  }, [pathname])
   return (
     <header>
-    <nav>
-      <p className={currPageHighlights.home}><Link to='/'>Home</Link></p>
-      <p className={currPageHighlights.articles}><Link to='/articles'>Articles</Link></p>
-      <p className={currPageHighlights.topics}><Link to='/topics'>Topics</Link></p>
-      <p className={currPageHighlights.user}><Link to='/user'>User</Link></p>
-      <div className="dropdown">
-      <p>Click to change user</p>
-      <img id="nav-img" src={currUser.avatar_url} alt="user avatar"/>
-      <div className="dropdown-content">
-        <UserList></UserList>
-      </div>
-      </div>
-    </nav>
+      <nav>
+        <p className={currPageHighlights.home}>
+          <Link to="/">Home</Link>
+        </p>
+        <p className={currPageHighlights.articles}>
+          <Link to="/articles">Articles</Link>
+        </p>
+        <p className={currPageHighlights.topics}>
+          <Link to="/topics">Topics</Link>
+        </p>
+        <p className={currPageHighlights.user}>
+          <Link to="/user">User</Link>
+        </p>
+        <div className="dropdown" id="user-change">
+          <p>Click to change user</p>
+          <img id="nav-img" src={currUser.avatar_url} alt="user avatar" />
+          <div className="dropdown-content">
+            <UserList></UserList>
+          </div>
+        </div>
+      </nav>
     </header>
   )
 }
