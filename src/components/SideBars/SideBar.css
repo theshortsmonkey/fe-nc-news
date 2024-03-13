@@ -12,3 +12,11 @@
 #articles-sidebar {
   grid-area: articles;
 }
+
+.sidebar-link {
+  border: 2px dashed red;
+  margin: 0.5rem;
+  a {
+    font-size: 0.75rem;
+  }
+}
