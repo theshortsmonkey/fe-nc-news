@@ -9,13 +9,26 @@ import { Topics } from './components/Topics/Topics';
 import { User } from './components/User/User';
 import { CurrUserProvider } from './contexts/CurrUser'
 import { Routes, Route } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { TopicsSideBar } from './components/SideBars/TopicsSideBar';
+import { ArticlesSideBar } from './components/SideBars/ArticlesSideBar';
 
 function App() {
+  const [width, setWidth] = useState(window.innerWidth)
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth)
+    window.addEventListener('resize', handleResize)
 
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  },[])
   return (
     <CurrUserProvider>
       <Header/>
       <div id="main-content">
+        {width>1000 ? <TopicsSideBar /> : null}
+        <div id='main-div'>
         <Routes>
           <Route path='/' element={<Home/>} />
           <Route path='/articles' element={<Articles/>} />
@@ -25,6 +38,8 @@ function App() {
           <Route path='/user' element={<User />} />
           <Route path="*" element={<ErrorComponent route='not found'/>} />
         </Routes>
+        </div>
+        {width>1000 ? <ArticlesSideBar /> : null}
       </div>
       <Footer/>
     </CurrUserProvider>
