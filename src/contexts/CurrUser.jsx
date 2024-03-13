@@ -2,12 +2,14 @@ import { createContext, useState } from "react";
 
 export const CurrUserContext = createContext()
 
+const defaultUser = {
+  username: 'cooljmessy',
+  name: 'Peter Messy',
+  avatar_url: 'https://vignette.wikia.nocookie.net/mrmen/images/1/1a/MR_MESSY_4A.jpg/revision/latest/scale-to-width-down/250?cb=20170730171002'
+}
+
 export const CurrUserProvider = ({children}) => {
-  const [currUser, setCurrUser] = useState({
-    username: 'cooljmessy',
-    name: 'Peter Messy',
-    avatar_url: 'https://vignette.wikia.nocookie.net/mrmen/images/1/1a/MR_MESSY_4A.jpg/revision/latest/scale-to-width-down/250?cb=20170730171002'
-  })
+  const [currUser, setCurrUser] = useState(defaultUser)
 
   return (
     <CurrUserContext.Provider value={{currUser, setCurrUser}}>
