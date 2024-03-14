@@ -2,6 +2,7 @@
   background-color: rgb(36, 33, 56);
   border-radius: 5px;
   box-shadow: 2px 2px 5px skyblue;
+  margin: 0.5rem auto 0.5rem;
   button {
     box-shadow: 5px azure;
     border: 2px solid azure;
@@ -16,11 +17,7 @@
     'author created created comments';
   column-gap: 0.25rem;
   row-gap: 0.25rem;
-  width: 50vw;
-  max-width: 20rem;
-  margin: 0.5rem;
-  margin-left: auto;
-  margin-right: auto;
+  width: 280px;
   padding: 0.5rem;
   p {
     font-size: 0.65rem;
@@ -42,7 +39,6 @@
   row-gap: 0.25rem;
   width: 80%;
   max-width: 1000px;
-  margin: 0.5rem auto 0.5rem;
   padding: 0.5rem;
   p {
     font-size: 0.9rem;
