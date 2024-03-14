@@ -25,6 +25,10 @@ export const patchArticlesById = (articleId,body) => {
   return ncNewsApi.patch(`articles/${articleId}`,body).then((res) => res.data)
 }
 
+export const deleteArticleById = (articleId) => {
+  return ncNewsApi.delete(`articles/${articleId}`).then((res) => res.status)
+}
+
 export const postCommentByArticleId = (articleId,body) => {
   return ncNewsApi.post(`articles/${articleId}/comments`,body).then((res) => res.data)
 }
