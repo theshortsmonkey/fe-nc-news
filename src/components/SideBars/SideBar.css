@@ -5,6 +5,7 @@
 
 .sidebar-link {
   border: 2px solid azure;
+  border-radius: 5px;
   margin: 0.5rem;
   a {
     font-size: 0.75rem;

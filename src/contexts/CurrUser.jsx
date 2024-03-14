@@ -5,7 +5,7 @@ export const CurrUserContext = createContext()
 const defaultUser = {
   username: '',
   name: '',
-  avatar_url: ''
+  avatar_url: 'https://cdn.pixabay.com/photo/2021/06/07/13/45/user-6318003_640.png'
 }
 
 export const CurrUserProvider = ({children}) => {
