@@ -11,7 +11,7 @@
   grid-template-columns: auto auto auto 5rem;
   column-gap: 0.25rem;
   row-gap: 0.25rem;
-  width: 90vw;
+  width: 80%;
   max-width: 1000px;
   margin: 0.25rem;
   margin-left: auto;

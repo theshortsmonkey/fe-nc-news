@@ -11,10 +11,10 @@ export const ArticlesList = ({ articlesList, topic }) => {
       <p>
         Listing articles under {topic} {topicDisplay}
       </p>
-      <div id="articles-list">
-        {articlesList ? (
-          <>
-            <p>Total Articles = {articlesList.length}</p>
+      {articlesList ? (
+        <>
+          <p>Total Articles = {articlesList.length}</p>
+          <div id="articles-list">
             {articlesList.map((article) => {
               return (
                 <ArticleCard
@@ -24,11 +24,11 @@ export const ArticlesList = ({ articlesList, topic }) => {
                 />
               )
             })}
-          </>
-        ) : (
-          <p>No articles to display</p>
-        )}
-      </div>
+          </div>
+        </>
+      ) : (
+        <p>No articles to display</p>
+      )}
     </>
   )
 }

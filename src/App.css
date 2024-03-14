@@ -16,7 +16,6 @@
 
 header {
   background-color: rgb(22, 19, 38);
-  border: 2px dotted green;
   position: fixed;
   top: 0;
   left: 0;
@@ -78,7 +77,6 @@ header {
 
 #footer-div {
   background-color: rgb(22, 19, 38);
-  border: 2px dotted green;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -102,15 +100,14 @@ header {
 #main-content {
   margin: 5rem auto 2rem;
   width: 80%;
-  display: grid;
-  grid-template-areas: 
-  'topics main articles';
-  grid-template-columns: 10% 80% 10%;
+  display: flex;
+  flex-flow: row nowrap;
+  flex-shrink: 1;
   justify-items: center;
-  border: 2px dashed green;
   padding: 2rem;
   #main-div {
-    grid-area: main;
+    box-sizing: content-box;
+    width: 100%;
   }
 }
 #main-content::after {
