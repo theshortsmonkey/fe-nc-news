@@ -38,8 +38,8 @@ export const Header = () => {
         <div className={currPageHighlights.user}>
           <Link to="/user">User</Link>
         </div>
-        <div className="dropdown" id="user-change" tabIndex='0'>
-          <div>
+        <div className="dropdown" tabIndex='0'>
+          <div id="user-change" >
           <p>{currUser.username || 'Not Logged In'}</p>
           <img id="nav-img" src={currUser.avatar_url} alt="user avatar" tabIndex='0'/>
           </div>
