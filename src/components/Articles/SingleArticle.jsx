@@ -6,6 +6,7 @@ import { Loading } from '../Loading'
 import { CommentsList } from '../Comments/CommentsList'
 import { PostComment } from '../Comments/PostComment/PostComment'
 import { ErrorComponent } from '../ErrorComponent'
+import { LoadingDiv } from '../LoadingDiv'
 
 export const SingleArticle = () => {
   const { article_id } = useParams()
@@ -25,28 +26,22 @@ export const SingleArticle = () => {
   }, [])
   return (
     <ErrorComponent error={error}>
-      <article>
-        {isLoading ? (
-          <Loading />
-        ) : (
-          <>
-            <ArticleCard
-              size="large"
-              article={article}
-              setArticle={setArticle}
-            />
-            <PostComment
-              article_id={article_id}
-              setCommentsList={setCommentsList}
-            />
-            <CommentsList
-              commentsList={commentsList}
-              setCommentsList={setCommentsList}
-              article_id={article_id}
-            />
-          </>
-        )}
-      </article>
+      <LoadingDiv isLoading={isLoading} dataType='article'>
+        <article>
+          <ArticleCard size="large" article={article} setArticle={setArticle} />
+          <PostComment
+            article_id={article_id}
+            setCommentsList={setCommentsList}
+          />
+          {commentsList ? (
+          <CommentsList
+            commentsList={commentsList}
+            setCommentsList={setCommentsList}
+            article_id={article_id}
+          />
+          ) : <p>No comments to display</p>}
+        </article>
+      </LoadingDiv>
     </ErrorComponent>
   )
 }
