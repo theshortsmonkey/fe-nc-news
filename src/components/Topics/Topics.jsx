@@ -6,6 +6,8 @@ import { ArticlesList } from '../Articles/ArticlesList/ArticlesList'
 import { Loading } from '../Loading'
 import { ArticlesListingOptions } from '../Articles/ArticlesListingOptions/ArticlesListingOptions'
 import { ErrorComponent } from '../ErrorComponent'
+import { AddTopic } from './AddTopic/AddTopic'
+import { captiliseFirstLetter } from '../../utils/utils'
 
 export const Topics = () => {
   const { topic_slug } = useParams()
@@ -60,7 +62,10 @@ export const Topics = () => {
         {currTopic.slug ? (
           loadArticlesList()
         ) : (
-          <TopicSelection setCurrentTopic={setCurrentTopic} />
+          <>
+            <TopicSelection setCurrentTopic={setCurrentTopic} />
+            <AddTopic />
+          </>
         )}
       </section>
     </ErrorComponent>
