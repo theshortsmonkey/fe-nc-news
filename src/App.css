@@ -64,13 +64,13 @@ header {
   }
 }
 .dropdown {
-  float: left;
   overflow: hidden;
 }
 .dropdown-content {
   display: none;
   background-color: rgb(22, 19, 38);
   position: absolute;
+  right: 10;
   min-width: 100px;
 }
 .dropdown:hover .dropdown-content {
@@ -78,6 +78,7 @@ header {
 }
 .dropdown:focus .dropdown-content {
   display: block;
+  width: fit-content;
 }
 
 main {

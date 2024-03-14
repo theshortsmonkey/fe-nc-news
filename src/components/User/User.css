@@ -38,5 +38,6 @@
 #user-list {
   display: flex;
   flex-flow: column nowrap;
-  align-items: center;
+  align-items: flex-end;
+  width: fit-content;
 }
