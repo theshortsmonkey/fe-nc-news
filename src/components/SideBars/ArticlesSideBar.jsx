@@ -18,11 +18,11 @@ export const ArticlesSideBar = () => {
   },[])
 
   return (
-    <div className="sidebar" id='articles-sidebar'>
+    <aside id='articles-sidebar'>
       <h2>Recent Articles</h2>
       {articlesList.map((article) => {
         return <div className='sidebar-link' key={article.article_id}><Link to={`/articles/${article.article_id}`}>{article.title}</Link></div>
       })}
-    </div>
+    </aside>
   )
 }

@@ -1,10 +1,10 @@
 export const Footer = () => {
   return (
-    <div id="footer-div">
-      <footer>
+    <footer>
+      <div id="footer-div">
         <p>Contact</p>
-        <p>Copyright 'theshortsmonkey'</p>
-      </footer>
-    </div>
+        <p>&copy; 'theshortsmonkey'</p>
+      </div>
+    </footer>
   )
 }

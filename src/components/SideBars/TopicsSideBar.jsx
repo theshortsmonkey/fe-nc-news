@@ -12,8 +12,8 @@ export const TopicsSideBar = () => {
   },[pathname])
   
   return (
-    <div className="sidebar" id='topics-sidebar'>
+    <aside id='topics-sidebar'>
       {!isTopicEndpoint ? <TopicSelection /> : null}
-    </div>
+    </aside>
   )
 }

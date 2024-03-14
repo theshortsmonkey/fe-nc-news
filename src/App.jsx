@@ -28,9 +28,9 @@ function App() {
   return (
     <CurrUserProvider>
       <Header/>
-      <div id="main-content">
+      <main>
         {width>1000 ? <TopicsSideBar /> : null}
-        <div id='main-div'>
+        <div id='main-content'>
         <Routes>
           <Route path='/' element={<Home/>} />
           <Route path='/articles' element={<Articles/>} />
@@ -42,7 +42,7 @@ function App() {
         </Routes>
         </div>
         {width>1000 ? <ArticlesSideBar /> : null}
-      </div>
+      </main>
       <Footer/>
     </CurrUserProvider>
   )
