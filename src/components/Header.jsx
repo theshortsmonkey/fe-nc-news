@@ -4,10 +4,10 @@ import { Link, useLocation } from 'react-router-dom'
 import { UserList } from './User/UserList'
 
 const blankHighlightsObj = {
-  home: '',
-  articles: '',
-  topics: '',
-  user: '',
+  home: 'header-home',
+  articles: 'header-articles',
+  topics: 'header-topics',
+  user: 'header-user',
 }
 
 export const Header = () => {
@@ -19,28 +19,30 @@ export const Header = () => {
     const affectedLink = pathname.match(/(?!\/)(\w*)/)[0]
     setCurrPageHighlights(() => {
       const newObj = { ...blankHighlightsObj }
-      newObj[affectedLink] = 'highlight'
+      newObj[affectedLink] += ' highlight'
       return newObj
     })
   }, [pathname])
   return (
     <header>
       <nav>
-        <p className={currPageHighlights.home}>
+        <div className={currPageHighlights.home}>
           <Link to="/">Home</Link>
-        </p>
-        <p className={currPageHighlights.articles}>
+        </div>
+        <div className={currPageHighlights.articles}>
           <Link to="/articles">Articles</Link>
-        </p>
-        <p className={currPageHighlights.topics}>
+        </div>
+        <div className={currPageHighlights.topics}>
           <Link to="/topics">Topics</Link>
-        </p>
-        <p className={currPageHighlights.user}>
+        </div>
+        <div className={currPageHighlights.user}>
           <Link to="/user">User</Link>
-        </p>
-        <div className="dropdown" id="user-change">
-          <p>{currUser.username}</p>
-          <img id="nav-img" src={currUser.avatar_url} alt="user avatar" />
+        </div>
+        <div className="dropdown" id="user-change" tabIndex='0'>
+          <div>
+          <p>{currUser.username || 'Not Logged In'}</p>
+          <img id="nav-img" src={currUser.avatar_url} alt="user avatar" tabIndex='0'/>
+          </div>
           <div className="dropdown-content">
             <UserList></UserList>
           </div>

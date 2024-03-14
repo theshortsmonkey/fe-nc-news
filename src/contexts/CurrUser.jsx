@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 export const CurrUserContext = createContext()
 
 const defaultUser = {
-  username: 'Not Logged In',
+  username: '',
   name: '',
   avatar_url: 'https://cdn.pixabay.com/photo/2021/06/07/13/45/user-6318003_640.png'
 }

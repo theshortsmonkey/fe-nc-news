@@ -26,6 +26,7 @@ header {
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
+    flex-grow: 1;
     border-radius: 10px;
     padding: 0.25rem;
     width: 80%;
@@ -39,7 +40,8 @@ header {
       background-color: rgb(57, 129, 238);
       border-radius: 5px;
     }
-    p {
+    div {
+      width: 20%;
       margin: auto;
     }
     img {
@@ -53,26 +55,27 @@ header {
       padding: 0.2rem;
     }
     #user-change {
-      width:20%;
-      margin: auto;
       max-height: 2.5rem;
+      p {
+        font-size: 0.5rem;
+      }
     }
   }
 }
 .dropdown {
-  position: relative;
-  display: inline-block;
-  p {
-    font-size: small;
-  }
+  float: left;
+  overflow: hidden;
 }
 .dropdown-content {
   display: none;
   background-color: rgb(22, 19, 38);
-  /* position: absolute; */
+  position: absolute;
   min-width: 100px;
 }
 .dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown:focus .dropdown-content {
   display: block;
 }
 

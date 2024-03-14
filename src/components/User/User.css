@@ -34,3 +34,9 @@
 #user-articles {
  max-width: 800px; 
 }
+
+#user-list {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
