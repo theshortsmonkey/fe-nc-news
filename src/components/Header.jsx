@@ -39,7 +39,7 @@ export const Header = () => {
           <Link to="/user">User</Link>
         </p>
         <div className="dropdown" id="user-change">
-          <p>Click to change user</p>
+          <p>{currUser.username}</p>
           <img id="nav-img" src={currUser.avatar_url} alt="user avatar" />
           <div className="dropdown-content">
             <UserList></UserList>

@@ -4,7 +4,7 @@ import { CurrUserContext } from "../../contexts/CurrUser"
 import { LoadingDiv } from "../LoadingDiv"
 
 const blankUser = {
-  username: '',
+  username: 'Not Logged In',
   name: '',
   avatar_url: 'https://cdn.pixabay.com/photo/2021/06/07/13/45/user-6318003_640.png'
 }

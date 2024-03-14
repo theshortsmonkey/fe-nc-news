@@ -18,11 +18,14 @@ body {
 header {
   width: 100%;
   height: fit-content;
+  z-index: 1;
+  position: relative;
   nav {
     background-color: rgb(22, 19, 38);
     opacity: 0.92;
     display: flex;
-    flex-flow: row;
+    flex-flow: row nowrap;
+    justify-content: center;
     border-radius: 10px;
     padding: 0.25rem;
     width: 80%;
@@ -40,20 +43,37 @@ header {
       margin: auto;
     }
     img {
-      height: 1.75rem;
+      height: 1.5rem;
       border: 2px dotted azure;
       border-radius: 5px;
     }
     .highlight {
       border: 2px solid azure;
       border-radius: 5px;
-      padding: 0.25rem;
+      padding: 0.2rem;
     }
     #user-change {
-      margin: 0.1rem auto 0.1rem;
+      width:20%;
+      margin: auto;
       max-height: 2.5rem;
     }
   }
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+  p {
+    font-size: small;
+  }
+}
+.dropdown-content {
+  display: none;
+  background-color: rgb(22, 19, 38);
+  /* position: absolute; */
+  min-width: 100px;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 
 main {
@@ -65,10 +85,9 @@ main {
   border-radius: 10px;
   margin: 0.5rem auto 0.5rem;
   width: 80%;
-  height: 70vh;
+  height: 77vh;
   display: flex;
   flex-flow: row nowrap;
-  flex-shrink: 1;
   justify-items: center;
   padding: 1rem;
   #main-content {
@@ -104,22 +123,5 @@ footer {
     font-size: 2rem;
     margin: 1rem;
   }
-}
-.dropdown {
-  position: relative;
-  display: inline-block;
-  p {
-    font-size: small;
-  }
-}
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: white;
-  min-width: 100px;
-  z-index: 1;
-}
-.dropdown:hover .dropdown-content {
-  display: block;
 }
 
