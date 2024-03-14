@@ -1,8 +1,20 @@
-# React + Vite
+Deployed app:
+https://theshortsmonkey-nc-news.netlify.app/
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This app is a simply reddit style news application of articles with:
+- associated with topics
+- comment functionality
+- voting functionality
 
-Currently, two official plugins are available:
+Backend:
+- https://github.com/theshortsmonkey/nc-news
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Minimum Node.js version:
+- v21.6.1
+
+To run this app locally:
+- git clone https://github.com/theshortsmonkey/fe-nc-news.git
+- navigate to the newly created 'fe-nc-news' directory.
+- use 'npm i' to install all dependancies.
+- use the command 'npm run dev' to launch the app.
+- navigate to the supplied 'localhost' link to view the app.
