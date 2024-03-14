@@ -18,7 +18,7 @@ export const ArticlesList = ({ articlesList, topic }) => {
             {articlesList.map((article) => {
               return (
                 <ArticleCard
-                  key={article.title}
+                  key={article.article_id}
                   size="small"
                   article={article}
                 />
