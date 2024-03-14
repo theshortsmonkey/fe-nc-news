@@ -3,15 +3,17 @@ import { CurrUserContext } from '../../../contexts/CurrUser'
 import './CommentCard.css'
 import { formatDate } from '../../../utils/utils'
 import { deleteCommentById } from '../../../utils/api'
+import { CommentVoteButtons } from './CommentVoteButtons'
 
 export const CommentCard = ({ comment }) => {
   const { currUser } = useContext(CurrUserContext)
   const [isDeleting, setIsDeleting] = useState(false)
   const [isCommentDeleted, setIsCommentDeleted] = useState(false)
+  const [currComment,setCurrComment] = useState(comment)
 
   function handleDeleteClick() {
     setIsDeleting(true)
-    deleteCommentById(comment.comment_id).then((res) => {
+    deleteCommentById(currComment.comment_id).then((res) => {
       setIsDeleting(false)
       setIsCommentDeleted(true)
     })
@@ -23,17 +25,16 @@ export const CommentCard = ({ comment }) => {
         <p id="comment-card-body">Comment Deleted</p>
       ) : (
         <>
-          <p id="comment-card-author">Author: {comment.author}</p>
-          <p id="comment-card-body">{comment.body}</p>
+          <p id="comment-card-author">Author: {currComment.author}</p>
+          <p id="comment-card-body">{currComment.body}</p>
           <div id="comment-card-votes">
-            <p>Votes: {comment.votes}</p>
-            <button>Up Vote</button>
-            <button>Down Vote</button>
+            <p>Votes: {currComment.votes}</p>
+            <CommentVoteButtons comment_id={currComment.comment_id} setCurrComment={setCurrComment} />
           </div>
           <p id="comment-card-created">
-            Posted: {formatDate(comment.created_at)}
+            Posted: {formatDate(currComment.created_at)}
           </p>
-          {currUser.username === comment.author ? (
+          {currUser.username === currComment.author ? (
             <div>
               {isDeleting ? (
                 <p>Deleting comment...</p>
