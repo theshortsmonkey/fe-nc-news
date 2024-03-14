@@ -33,6 +33,10 @@ export const getTopics = () => {
   return ncNewsApi.get('topics').then((res) => res.data)
 }
 
+export const postTopic = (body) => {
+  return ncNewsApi.post('topics',body).then((res) => res.data)
+}
+
 export const getUsers = () => {
   return ncNewsApi.get('users').then((res) => res.data)
 }
