@@ -13,6 +13,7 @@ export const SingleArticle = () => {
   const [article, setArticle] = useState({})
   const [commentsList, setCommentsList] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+  const [isArticleDeleted, setIsArticleDeleted] = useState(false)
   const [error, setError] = useState(null)
 
   useEffect(() => {
@@ -28,18 +29,22 @@ export const SingleArticle = () => {
     <ErrorComponent error={error}>
       <LoadingDiv isLoading={isLoading} dataType='article'>
         <article>
-          <ArticleCard size="large" article={article} setArticle={setArticle} />
+          <ArticleCard size="large" article={article} setArticle={setArticle} isArticleDeleted={isArticleDeleted} setIsArticleDeleted={setIsArticleDeleted} />
+          
+      {!isArticleDeleted ? (
+        <>
           <PostComment
             article_id={article_id}
             setCommentsList={setCommentsList}
           />
-          {commentsList ? (
+          {commentsList  ? (
           <CommentsList
             commentsList={commentsList}
             setCommentsList={setCommentsList}
             article_id={article_id}
           />
           ) : <p>No comments to display</p>}
+          </> ) :null }
         </article>
       </LoadingDiv>
     </ErrorComponent>
