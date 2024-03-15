@@ -60,6 +60,7 @@ export const Header = ({ width }) => {
           ) : (
             <>
               <div className={currPageHighlights[currPage]}>
+                <img src='https://cdn3.iconfinder.com/data/icons/web-ui-3/128/Menu-2-64.png'/>
                 <Link to={'/' + currPage}>
                   {captiliseFirstLetter(currPage)}
                 </Link>
