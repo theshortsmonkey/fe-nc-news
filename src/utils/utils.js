@@ -17,3 +17,8 @@ export const formatDate = (string,length) => {
 export const captiliseFirstLetter = (string) => {
   return string[0].toUpperCase() + string.slice(1)
 }
+
+export const singleOrPluralView = (num,str) => {
+  if (num !== 1) str += 's'
+  return `${num} ${str}`
+}

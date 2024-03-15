@@ -3,7 +3,7 @@ import './ArticleCard.css'
 import { useContext, useState } from 'react'
 import { CurrUserContext } from '../../../contexts/CurrUser'
 import { ArticleVoteButtons } from './ArticleVoteButtons'
-import { formatDate } from '../../../utils/utils'
+import { formatDate, singleOrPluralView } from '../../../utils/utils'
 import { DeleteButton } from './DeleteButton'
 
 export const ArticleCard = ({ size, article, setArticle,isArticleDeleted, setIsArticleDeleted }) => {
@@ -29,7 +29,7 @@ export const ArticleCard = ({ size, article, setArticle,isArticleDeleted, setIsA
           {size === 'small' ? null : <p id="card-body">{article.body}</p>}
           <p id="card-created">Created: {formatDate(article.created_at,size)}</p>
           <div id="card-votes">
-            <p>{article.votes} votes</p>
+            <p>{singleOrPluralView(article.votes,'vote')}</p>
             {size === 'small' ? null : (
               <ArticleVoteButtons
                 article_id={article.article_id}
@@ -50,7 +50,7 @@ export const ArticleCard = ({ size, article, setArticle,isArticleDeleted, setIsA
               setIsArticleDeleted={setIsArticleDeleted}
             />
           ) : null}
-          {size === 'small' ? <p id="card-comments">{article.comment_count} comments</p> : null}
+          {size === 'small' ? <p id="card-comments">{singleOrPluralView(article.comment_count,'comment')}</p> : null}
         </>
       )}
     </div>

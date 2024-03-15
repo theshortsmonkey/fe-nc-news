@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react'
 import { CurrUserContext } from '../../../contexts/CurrUser'
 import './CommentCard.css'
-import { formatDate } from '../../../utils/utils'
+import { formatDate, singleOrPluralView } from '../../../utils/utils'
 import { deleteCommentById } from '../../../utils/api'
 import { CommentVoteButtons } from './CommentVoteButtons'
 
@@ -25,10 +25,10 @@ export const CommentCard = ({ comment }) => {
         <p id="comment-card-body">Comment Deleted</p>
       ) : (
         <>
-          <p id="comment-card-author">Author: {currComment.author}</p>
+          <p id="comment-card-author">By: {currComment.author}</p>
           <p id="comment-card-body">{currComment.body}</p>
           <div id="comment-card-votes">
-            <p>Votes: {currComment.votes}</p>
+            <p>{singleOrPluralView(currComment.votes,'vote')}</p>
             <CommentVoteButtons comment_id={currComment.comment_id} setCurrComment={setCurrComment} />
           </div>
           <p id="comment-card-created">

@@ -30,9 +30,9 @@
     border: 2px solid rgb(129, 120, 185);
     border-radius: 5px;
     font-size: 0.7rem;
-    background-color: #9dcfb0;
     color: #080a4f;
     margin: 0.25rem;
+    padding: 2px;
   }
 }
 #comment-card-author {

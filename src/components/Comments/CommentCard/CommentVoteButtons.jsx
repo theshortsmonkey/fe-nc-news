@@ -31,14 +31,14 @@ export const CommentVoteButtons = ({ comment_id, setCurrComment }) => {
           handleButtonClick(1)
         }}
       >
-        Up Vote
+        &#x1F44D;
       </button>
       <button
         onClick={() => {
           handleButtonClick(-1)
         }}
       >
-        Down Vote
+        &#128078;
       </button>
     </div> 
     )
