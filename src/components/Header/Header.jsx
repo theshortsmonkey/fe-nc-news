@@ -3,6 +3,7 @@ import { CurrUserContext } from '../../contexts/CurrUser'
 import { Link, useLocation } from 'react-router-dom'
 import { UserList } from '../User/UserList'
 import './Header.css'
+import { captiliseFirstLetter } from '../../utils/utils'
 
 const blankHighlightsObj = {
   home: 'header-home',
@@ -11,25 +12,29 @@ const blankHighlightsObj = {
   user: 'header-user',
 }
 
-export const Header = () => {
+export const Header = ({ width }) => {
   const [currPageHighlights, setCurrPageHighlights] =
     useState(blankHighlightsObj)
+  const [navLinks, setNavLinks] = useState(<></>)
   const { currUser } = useContext(CurrUserContext)
   const { pathname } = useLocation()
+  const [currPage, setCurrPage] = useState(pathname.match(/(?!\/)(\w*)/)[0])
+
   useEffect(() => {
-    const affectedLink = pathname.match(/(?!\/)(\w*)/)[0]
+    let currPageStr = pathname.match(/(?!\/)(\w*)/)[0]
+    if (!currPageStr) currPageStr = 'home'
+    setCurrPage(currPageStr)
+  }, [pathname])
+  useEffect(() => {
     setCurrPageHighlights(() => {
       const newObj = { ...blankHighlightsObj }
-      newObj[affectedLink] += ' highlight'
+      newObj[currPage] += ' highlight'
       return newObj
     })
-  }, [pathname])
-  return (
-    <header>
-      <nav>
-        <div className={currPageHighlights.home}>
-          <Link to="/">Home</Link>
-        </div>
+  }, [currPage])
+  useEffect(() => {
+    setNavLinks(
+      <>
         <div className={currPageHighlights.articles}>
           <Link to="/articles">Articles</Link>
         </div>
@@ -39,12 +44,41 @@ export const Header = () => {
         <div className={currPageHighlights.user}>
           <Link to="/user">User</Link>
         </div>
-        <div className="dropdown" tabIndex='0'>
-          <div id="user-change" >
-          <p>{currUser.username || 'Not Logged In'}</p>
-          <img id="nav-img" src={currUser.avatar_url} alt="user avatar" tabIndex='0'/>
+      </>
+    )
+  }, [currPageHighlights])
+
+  return (
+    <header>
+      <nav>
+        <div className="header-home">
+          <Link to="/">NC News Home</Link>
+        </div>
+        <div className="menu menu-dropdown" tabIndex="0">
+          {width > 600 ? (
+            navLinks
+          ) : (
+            <>
+              <div className={currPageHighlights[currPage]}>
+                <Link to={'/' + currPage}>
+                  {captiliseFirstLetter(currPage)}
+                </Link>
+              </div>
+              <div className="menu-dropdown-content">{navLinks}</div>
+            </>
+          )}
+        </div>
+        <div className="user-dropdown" tabIndex="0">
+          <div id="user-change">
+            <p>{currUser.username || 'Not Logged In'}</p>
+            <img
+              id="nav-img"
+              src={currUser.avatar_url}
+              alt="user avatar"
+              tabIndex="0"
+            />
           </div>
-          <div className="dropdown-content">
+          <div className="user-dropdown-content">
             <UserList></UserList>
           </div>
         </div>

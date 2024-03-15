@@ -10,12 +10,13 @@ main {
   overflow-wrap: break-word;
   border-radius: 10px;
   margin: 0.5rem auto 0.5rem;
-  width: 80%;
-  height: 77vh;
+  width: 90%;
+  height: 85vh;
   display: flex;
   flex-flow: row nowrap;
   justify-items: center;
-  padding: 1rem;
+  box-sizing: border-box;
+  padding-top: 0.5rem;
   #main-content {
     box-sizing: content-box;
     width: 90%;
