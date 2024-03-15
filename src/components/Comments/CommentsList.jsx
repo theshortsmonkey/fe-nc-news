@@ -14,7 +14,7 @@ export const CommentsList = ({ article_id,commentsList, setCommentsList }) => {
   }, [])
   return (
     <>
-      <h3>All Comments</h3>
+      <h3>{commentsList.length} comments</h3>
       {isLoading ?  <Loading/> : (
         commentsList.map((comment) => {
           return <CommentCard key={comment.comment_id} comment={comment} />

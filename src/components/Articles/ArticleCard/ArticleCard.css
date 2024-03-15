@@ -4,9 +4,9 @@
   box-shadow: 2px 2px 5px skyblue;
   margin: 0 auto 0;
   button {
-    box-shadow: 5px azure;
     border: 2px solid azure;
-    border-radius: 5px;
+    padding: 2px;
+    height: fit-content;
   }
 }
 .article-card-small {
@@ -29,12 +29,13 @@
 .article-card-large {
   display: grid;
   grid-template-areas:
+    'title title title topic'
     'title title title votes'
     'body body body votes'
     'body body body img'
     'body body body img'
     'body body body delete'
-    'created author topic comments';
+    'created created created author ';
   column-gap: 0.25rem;
   row-gap: 0.25rem;
   width: 80%;
@@ -44,7 +45,7 @@
     font-size: 0.9rem;
   }
   #title {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     font-weight: bold;
   }
 }
@@ -53,6 +54,7 @@
 }
 #card-topic {
   grid-area: topic;
+  font-style: italic;
 }
 #card-author {
   grid-area: author;
@@ -78,7 +80,9 @@
   width: 80%;
   height: 50%;
   margin: 0.5rem auto 0.5rem;
+  height: fit-content;
 }
 #card-img {
+  grid-area: img;
   width: 100%;
 }

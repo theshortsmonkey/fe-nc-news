@@ -1,13 +1,15 @@
 
-export const formatDate = (string) => {
+export const formatDate = (string,length) => {
   const newDate = new Date(string)
   const options = {
     hourCycle: 'h24',
-    hour: '2-digit',
-    minute: '2-digit',
     day: '2-digit',
     month: 'short',
     year: 'numeric',
+  }
+  if (length !== 'small') {
+      options.hour = '2-digit'
+      options.minute = '2-digit'
   }
   return newDate.toLocaleDateString('en-GB', options)
 }

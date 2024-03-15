@@ -21,15 +21,15 @@ export const ArticleCard = ({ size, article, setArticle,isArticleDeleted, setIsA
                 {article.title}
               </Link>
             ) : (
-              <p id="title">Title: {article.title}</p>
+              <p id="title">{article.title}</p>
             )}
           </div>
-          <p id="card-topic">Topic: {article.topic}</p>
-          <p id="card-author">Author: {article.author}</p>
+          <p id="card-topic">{article.topic}</p>
+          <p id="card-author">By: {article.author}</p>
           {size === 'small' ? null : <p id="card-body">{article.body}</p>}
-          <p id="card-created">Created: {formatDate(article.created_at)}</p>
+          <p id="card-created">Created: {formatDate(article.created_at,size)}</p>
           <div id="card-votes">
-            <p>Total Votes: {article.votes}</p>
+            <p>{article.votes} votes</p>
             {size === 'small' ? null : (
               <ArticleVoteButtons
                 article_id={article.article_id}
@@ -50,7 +50,7 @@ export const ArticleCard = ({ size, article, setArticle,isArticleDeleted, setIsA
               setIsArticleDeleted={setIsArticleDeleted}
             />
           ) : null}
-          <p id="card-comments">Comments: {article.comment_count}</p>
+          {size === 'small' ? <p id="card-comments">{article.comment_count} comments</p> : null}
         </>
       )}
     </div>

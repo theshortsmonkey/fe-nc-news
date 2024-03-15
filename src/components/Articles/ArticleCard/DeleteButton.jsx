@@ -7,7 +7,6 @@ export const DeleteButton = ({ article_id, setIsArticleDeleted }) => {
   function handleDeleteClick() {
     setIsDeleting(true)
     deleteArticleById(article_id).then((res) => {
-      console.log(res)
       setIsDeleting(false)
       setIsArticleDeleted(true)
     })
