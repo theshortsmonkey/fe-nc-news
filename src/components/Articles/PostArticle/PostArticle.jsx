@@ -2,10 +2,9 @@ import { useEffect, useState } from 'react'
 import './PostArticle.css'
 import { useContext } from 'react'
 import { CurrUserContext } from '../../../contexts/CurrUser'
-import { captiliseFirstLetter, formatDate } from '../../../utils/utils'
+import { captiliseFirstLetter } from '../../../utils/utils'
 import { getTopics, postArticle } from '../../../utils/api'
 import { ErrorComponent } from '../../ErrorComponent'
-import { useNavigate } from 'react-router-dom'
 
 const blankArticle = {
   title: '',

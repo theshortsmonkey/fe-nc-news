@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import './ArticleCard.css'
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { CurrUserContext } from '../../../contexts/CurrUser'
 import { ArticleVoteButtons } from './ArticleVoteButtons'
 import { formatDate, singleOrPluralView } from '../../../utils/utils'

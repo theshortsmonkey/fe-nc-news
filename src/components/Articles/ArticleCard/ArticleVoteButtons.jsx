@@ -1,4 +1,3 @@
-import './ArticleVoteButtons.css'
 import { useState } from 'react'
 import { patchArticlesById } from '../../../utils/api'
 

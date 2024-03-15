@@ -7,12 +7,18 @@
 }
 .topic-input {
   font-size: medium;
-  width: 70vw;
-  max-width: 800px;
+  width: 100%;
   margin: 0.25rem;
 }
 #submit-topic-button {
-  width: 35vw;
-  max-width: 400px;
+  background-color: rgb(22, 19, 38);
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px skyblue;
+  margin: 0.1rem;
+  width: fit-content;
   align-self: center;
+}
+#submit-topic-button:hover {
+  background-color: rgb(57, 129, 238);
+  color: rgb(22, 19, 38);
 }

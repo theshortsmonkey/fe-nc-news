@@ -3,7 +3,6 @@ import './User.css'
 import { CurrUserContext } from '../../contexts/CurrUser'
 import { UserArticles } from './UserArticles'
 import { UserComments } from './UserComments'
-import { UserList } from './UserList'
 
 export const User = () => {
   const { currUser } = useContext(CurrUserContext)

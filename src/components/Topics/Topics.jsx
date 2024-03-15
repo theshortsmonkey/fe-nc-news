@@ -3,11 +3,10 @@ import { TopicSelection } from './TopicSelection/TopicSelection'
 import { useParams, useSearchParams } from 'react-router-dom'
 import { getArticles } from '../../utils/api'
 import { ArticlesList } from '../Articles/ArticlesList/ArticlesList'
-import { Loading } from '../Loading'
 import { ArticlesListingOptions } from '../Articles/ArticlesListingOptions/ArticlesListingOptions'
 import { ErrorComponent } from '../ErrorComponent'
 import { AddTopic } from './AddTopic/AddTopic'
-import { captiliseFirstLetter } from '../../utils/utils'
+import { LoadingDiv } from '../LoadingDiv'
 
 export const Topics = () => {
   const { topic_slug } = useParams()
@@ -40,27 +39,22 @@ export const Topics = () => {
     setSearchParams(queryObj)
   }, [currTopic, sortOrder, sortBy])
 
-  function loadArticlesList() {
-    let content = (
-      <ArticlesList articlesList={articlesList} topic={currTopic.slug} />
-    )
-    if (isLoading) content = <Loading />
-    return (
-      <>
-        <ArticlesListingOptions
-          setSortBy={setSortBy}
-          setSortOrder={setSortOrder}
-        />
-        {content}
-      </>
-    )
-  }
-
   return (
     <ErrorComponent error={error}>
       <section id="topics-section">
         {currTopic.slug ? (
-          loadArticlesList()
+          <>
+            <ArticlesListingOptions
+              setSortBy={setSortBy}
+              setSortOrder={setSortOrder}
+            />
+            <LoadingDiv isLoading={isLoading} dataType="articles">
+              <ArticlesList
+                articlesList={articlesList}
+                topic={currTopic.slug}
+              />
+            </LoadingDiv>
+          </>
         ) : (
           <>
             <TopicSelection setCurrentTopic={setCurrentTopic} />

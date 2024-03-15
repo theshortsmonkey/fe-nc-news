@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react'
 import './TopicSelection.css'
 import { getTopics } from '../../../utils/api'
 import { useNavigate } from 'react-router-dom'
-import { Loading } from '../../Loading'
+import { LoadingDiv } from '../../LoadingDiv'
+import { captiliseFirstLetter } from '../../../utils/utils'
 
 export const TopicSelection = ({ setCurrentTopic }) => {
   const [topicsList, setTopicsList] = useState([])
@@ -25,19 +26,17 @@ export const TopicSelection = ({ setCurrentTopic }) => {
   return (
     <form id="topic-selection">
       <h2>Click a topic to view articles</h2>
-      {isLoading ? (
-        <Loading />
-      ) : (
+      <LoadingDiv isLoading={isLoading} dataType='topics' >
         <div className="topics-list">
           {topicsList.map((topic) => {
             return (
               <button key={topic.slug} onClick={(e) => handleClick(e, topic)}>
-                {topic.slug}
+                {captiliseFirstLetter(topic.slug)}
               </button>
             )
           })}
         </div>
-      )}
+      </LoadingDiv>
     </form>
   )
 }

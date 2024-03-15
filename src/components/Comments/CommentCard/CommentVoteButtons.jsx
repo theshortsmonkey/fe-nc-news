@@ -1,4 +1,3 @@
-import './CommentVoteButtons.css'
 import { useState } from 'react'
 import { patchCommentById } from '../../../utils/api'
 

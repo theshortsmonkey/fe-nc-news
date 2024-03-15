@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import './SideBar.css'
-import { ArticlesList } from '../Articles/ArticlesList/ArticlesList'
 import { getArticles } from '../../utils/api'
 import { Link } from 'react-router-dom'
+import { LoadingDiv } from '../LoadingDiv'
 
 export const ArticlesSideBar = () => {
   const [articlesList,setArticlesList] = useState([])
@@ -20,9 +20,11 @@ export const ArticlesSideBar = () => {
   return (
     <aside id='articles-sidebar'>
       <h2>Recent Articles</h2>
+      <LoadingDiv isLoading={isLoading} dataType='articles'>
       {articlesList.map((article) => {
         return <div className='sidebar-link' key={article.article_id}><Link to={`/articles/${article.article_id}`}>{article.title}</Link></div>
       })}
+      </LoadingDiv>
     </aside>
   )
 }
