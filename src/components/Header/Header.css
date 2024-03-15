@@ -1,0 +1,66 @@
+
+header {
+  width: 100%;
+  height: fit-content;
+  z-index: 1;
+  position: relative;
+  nav {
+    background-color: rgb(22, 19, 38);
+    opacity: 0.92;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    flex-grow: 1;
+    border-radius: 10px;
+    padding: 0.25rem 1rem 0.25rem;
+    width: 80%;
+    margin: 0.5rem auto 0.5rem;
+    a {
+      text-decoration: none;
+      color: azure;
+      padding: 0.2rem;
+    }
+    a:hover {
+      background-color: rgb(57, 129, 238);
+      border-radius: 5px;
+    }
+    div {
+      width: 20%;
+      margin: auto;
+    }
+    img {
+      height: 1.5rem;
+      border: 2px dotted azure;
+      border-radius: 5px;
+    }
+    .highlight {
+      border: 2px solid azure;
+      border-radius: 5px;
+      padding: 0.2rem;
+    }
+    #user-change {
+      max-height: 2.5rem;
+      width: 100%;
+      p {
+        font-size: 0.5rem;
+      }
+    }
+  }
+}
+.dropdown {
+  overflow: hidden;
+}
+.dropdown-content {
+  display: none;
+  background-color: rgb(22, 19, 38);
+  position: absolute;
+  right: 10;
+  min-width: 100px;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown:focus .dropdown-content {
+  display: block;
+  width: fit-content;
+}

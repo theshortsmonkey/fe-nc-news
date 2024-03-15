@@ -1,7 +1,8 @@
 import { useContext, useEffect, useState } from 'react'
-import { CurrUserContext } from '../contexts/CurrUser'
+import { CurrUserContext } from '../../contexts/CurrUser'
 import { Link, useLocation } from 'react-router-dom'
-import { UserList } from './User/UserList'
+import { UserList } from '../User/UserList'
+import './Header.css'
 
 const blankHighlightsObj = {
   home: 'header-home',
