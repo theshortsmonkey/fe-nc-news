@@ -39,7 +39,7 @@ export const Articles = () => {
         <PostArticle setShowAddArticleForm={setShowAddArticleForm}/>
         ) : (
           <>
-          {currUser.username ? <button onClick={handleClick}>Post Article</button> : null}
+          {currUser.username ? <button onClick={handleClick}>Click here to post an article</button> : <button id='post-article-button' disabled>Login to post an article</button>}
           <ArticlesListingOptions
             setSortBy={setSortBy}
             setSortOrder={setSortOrder}

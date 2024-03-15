@@ -14,7 +14,7 @@ const blankArticle = {
   article_img_url: '',
 }
 
-export const PostArticle = ({setShowAddArticleForm}) => {
+export const PostArticle = ({ setShowAddArticleForm }) => {
   const { currUser } = useContext(CurrUserContext)
   const [currArticle, setCurrArticle] = useState(blankArticle)
   const [isFormVisible, setIsFormVisible] = useState(true)
@@ -53,7 +53,7 @@ export const PostArticle = ({setShowAddArticleForm}) => {
         <form id="post-article-form" onSubmit={handleSubmit}>
           <h2>Your Article info:</h2>
           <label>
-            Article Title
+            Title:
             <input
               className="article-input"
               required
@@ -63,16 +63,15 @@ export const PostArticle = ({setShowAddArticleForm}) => {
             ></input>
           </label>
           <label>
-            Select Topic
+            Topic:
             <select
               className="article-input"
+              id='topic-select'
               required
               value={currArticle.topic}
               onChange={(e) => handleChange(e, 'topic')}
             >
-              <option value="">
-                Select a topic
-              </option>
+              <option value="">Select a topic</option>
               {topicsList.map((topic) => {
                 return (
                   <option key={topic.slug} value={topic.slug}>
@@ -83,17 +82,19 @@ export const PostArticle = ({setShowAddArticleForm}) => {
             </select>
           </label>
           <label>
-            Article Image URL
+            Image URL: <span>e.g http(s)://example.com</span>
             <input
+              type="url"
+              placeholder="http://example.com"
+              pattern="http.*://.*"
               className="article-input"
               required
-              placeholder="Enter article title"
               value={currArticle.article_img_url}
               onChange={(e) => handleChange(e, 'article_img_url')}
             ></input>
           </label>
           <label>
-            Article Content
+            Content
             <textarea
               className="article-input"
               placeholder="Enter your article content here"
@@ -103,15 +104,14 @@ export const PostArticle = ({setShowAddArticleForm}) => {
               onChange={(e) => handleChange(e, 'body')}
             ></textarea>
           </label>
-          {currUser.username ? (
-            <input
-              id="submit-article-button"
-              type="submit"
-              value="Post Article"
-            ></input>
-          ) : (
-            <p>You need to be logged in to post an article</p>
-          )}
+          <input
+            id="submit-article-button"
+            type="submit"
+            value={
+              currUser.username ? 'Post Article' : 'Login to post an article'
+            }
+            disabled={!currUser.username}
+          ></input>
         </form>
       ) : (
         <p>Posting Article...</p>
