@@ -4,13 +4,15 @@ aside {
   border-radius: 5px;
   box-sizing: content-box;
   width: 20%;
+  button {
+    margin: 0.25rem;
+  }
 }
 
 .sidebar-link {
-  border: 2px solid azure;
-  border-radius: 5px;
-  margin: 0.5rem;
+  margin: 0.5rem auto 1.5rem;
+  text-align: left;
   a {
-    font-size: 0.75rem;
+    font-size: 0.9rem;
   }
 }

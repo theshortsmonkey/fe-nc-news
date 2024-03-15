@@ -24,7 +24,7 @@ export const ArticleCard = ({ size, article, setArticle,isArticleDeleted, setIsA
               <p id="title">{article.title}</p>
             )}
           </div>
-          <p id="card-topic"><Link to={`/topics/${article.topic}`}>{article.topic}</Link></p>
+          <p id="card-topic"><Link to={`/topics/${article.topic}`}>#{article.topic}</Link></p>
           <p id="card-author">By: {article.author}</p>
           {size === 'small' ? null : <p id="card-body">{article.body}</p>}
           <p id="card-created">Created: {formatDate(article.created_at,size)}</p>
