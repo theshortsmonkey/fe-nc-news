@@ -1,0 +1,104 @@
+
+header {
+  width: 100%;
+  height: fit-content;
+  z-index: 1;
+  position: relative;
+  nav {
+    box-sizing: border-box;
+    background-color: rgb(22, 19, 38);
+    opacity: 0.92;
+    width: 90%;
+    height: 100%;
+    margin: 0.5rem auto 0.5rem;
+    border-radius: 10px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    a {
+      text-decoration: none;
+      color: azure;
+      padding: 0.2rem;
+      display: inline-block;
+      width: 90%;
+    }
+    a:hover {
+      background-color: rgb(57, 129, 238);
+      border-radius: 5px;
+    }
+    .highlight {
+      border: 2px solid azure;
+      border-radius: 5px;
+      padding: 0.2rem;
+    }
+    img {
+      height: 1.5rem;
+    }
+  }
+}
+.header-home {
+  box-sizing: border-box;
+  border-right: 2px dotted azure;
+  height:100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.menu {
+  width: 70vw;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-grow: 1;
+  padding: 0rem 1rem 0rem;
+  margin: 0rem auto 0rem;
+}
+.menu-dropdown {
+  overflow: hidden;
+}
+.menu-dropdown-content {
+  display: none;
+  background-color: rgb(22, 19, 38);
+  position: absolute;
+  top: 80%;
+  min-width: 20%;
+}
+.menu-dropdown:hover .menu-dropdown-content {
+  display: block;
+}
+.menu-dropdown:focus .menu-dropdown-content {
+  display: block;
+  width: fit-content;
+}
+.user-dropdown {
+  overflow: hidden;
+  min-width: 10%;
+  height: fit-content;
+  padding: 0 0.25rem 0;
+  border-left: 2px dotted azure;
+  #user-change {
+    p {
+      font-size: 0.5rem;
+    }
+    img {
+      height: 1.5rem;
+      border: 2px dotted azure;
+      border-radius: 5px;
+    }
+  }
+}
+.user-dropdown-content {
+  display: none;
+  background-color: rgb(22, 19, 38);
+  position: absolute;
+  right: 5%;
+  min-width: fit-content;
+}
+.user-dropdown:hover .user-dropdown-content {
+  display: block;
+}
+.user-dropdown:focus .user-dropdown-content {
+  display: block;
+  width: fit-content;
+}

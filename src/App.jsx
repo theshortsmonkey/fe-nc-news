@@ -1,11 +1,9 @@
 import './App.css'
-import { Footer } from './components/Footer';
-import { Header } from './components/Header'
 import { CurrUserProvider } from './contexts/CurrUser'
-import { useEffect, useState } from 'react';
-import { TopicsSideBar } from './components/SideBars/TopicsSideBar';
-import { ArticlesSideBar } from './components/SideBars/ArticlesSideBar';
-import { Routing } from './Routing';
+import { Header } from './components/Header/Header'
+import { MainContent } from './components/MainContent/MainContent'
+import { Footer } from './components/Footer/Footer'
+import { useEffect, useState } from 'react'
 
 function App() {
   const [width, setWidth] = useState(window.innerWidth)
@@ -17,19 +15,13 @@ function App() {
     return () => {
       window.removeEventListener('resize', handleResize)
     }
-  },[])
+  }, [])
 
   return (
     <CurrUserProvider>
-      <Header/>
-      <main>
-        {width>1000 ? <TopicsSideBar /> : null}
-        <div id='main-content'>
-        <Routing />
-        </div>
-        {width>1000 ? <ArticlesSideBar /> : null}
-      </main>
-      <Footer/>
+      <Header  width={width}/>
+      <MainContent width={width}/>
+      <Footer />
     </CurrUserProvider>
   )
 }

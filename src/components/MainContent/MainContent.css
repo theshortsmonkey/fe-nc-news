@@ -1,0 +1,25 @@
+body {
+  display: grid;
+  grid-template-rows: fit-content auto fit-content;
+}
+main {
+  background-color: rgb(22, 19, 38);
+  opacity: 0.9;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  overflow-wrap: break-word;
+  border-radius: 10px;
+  margin: 0.5rem auto 0.5rem;
+  width: 90%;
+  height: 85vh;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-items: center;
+  box-sizing: border-box;
+  padding-top: 0.5rem;
+  #main-content {
+    box-sizing: content-box;
+    width: 90%;
+    margin: 0rem auto 0rem;
+  }
+}
