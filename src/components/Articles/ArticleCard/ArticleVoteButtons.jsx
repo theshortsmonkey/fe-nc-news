@@ -4,6 +4,8 @@ import { patchArticlesById } from '../../../utils/api'
 
 export const ArticleVoteButtons = ({ article_id, setArticle }) => {
   const [isVoteSubmitted, setIsVoteSubmitted] = useState(false)
+  const [voteResponse, setVoteResponse] = useState('')
+
   function handleButtonClick(voteInc) {
     const body = { inc_votes: voteInc }
     setArticle((curr) => {
@@ -12,6 +14,8 @@ export const ArticleVoteButtons = ({ article_id, setArticle }) => {
       return copyArticle
     })
     setIsVoteSubmitted(true)
+    if (voteInc > 0) setVoteResponse(<p>&#128578; Article up voted</p>)
+    else setVoteResponse(<p>Article down voted</p>)
     patchArticlesById(article_id, body).catch(() => {
       setArticle((curr) => {
         const copyArticle = { ...curr }
@@ -22,7 +26,7 @@ export const ArticleVoteButtons = ({ article_id, setArticle }) => {
     })
   }
   return (
-    isVoteSubmitted ? <p>Vote Submitted</p> :
+    isVoteSubmitted ? voteResponse :
     (
     <div id="article-vote-buttons">
       <button

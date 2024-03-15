@@ -30,7 +30,6 @@
     border: 2px solid rgb(129, 120, 185);
     border-radius: 5px;
     font-size: 0.7rem;
-    color: #080a4f;
     margin: 0.25rem;
     padding: 2px;
   }
@@ -44,6 +43,9 @@
 }
 #comment-card-votes {
   grid-area: votes;
+  p {
+    font-size: 0.75rem;
+  }
 }
 #comment-card-created {
   grid-area: created;

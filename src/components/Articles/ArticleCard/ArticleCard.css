@@ -14,7 +14,8 @@
   grid-template-areas:
     'title title title topic'
     'title title title votes'
-    'author created created comments';
+    'title title title comments'
+    'created created author author';
   column-gap: 0.25rem;
   row-gap: 0.25rem;
   width: 280px;
@@ -54,7 +55,10 @@
 }
 #card-topic {
   grid-area: topic;
-  font-style: italic;
+  a {
+    font-size: 0.65rem;
+    font-style: italic;
+  }
 }
 #card-author {
   grid-area: author;

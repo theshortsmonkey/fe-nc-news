@@ -4,6 +4,7 @@ import { patchCommentById } from '../../../utils/api'
 
 export const CommentVoteButtons = ({ comment_id, setCurrComment }) => {
   const [isVoteSubmitted, setIsVoteSubmitted] = useState(false)
+  const [voteResponse, setVoteResponse] = useState('')
 
   function handleButtonClick(voteInc) {
     const body = { inc_votes: voteInc }
@@ -13,6 +14,8 @@ export const CommentVoteButtons = ({ comment_id, setCurrComment }) => {
       return copyComment
     })
     setIsVoteSubmitted(true)
+    if (voteInc > 0) setVoteResponse(<p>&#128578; Comment up voted</p>)
+    else setVoteResponse(<p>Comment down voted</p>)
     patchCommentById(comment_id, body).catch(() => {
       setCurrComment((curr) => {
         const copyComment = { ...curr }
@@ -22,9 +25,9 @@ export const CommentVoteButtons = ({ comment_id, setCurrComment }) => {
       setIsVoteSubmitted(false)
     })
   }
-  return (
-    isVoteSubmitted ? <p>Vote Submitted</p> :
-    (
+  return isVoteSubmitted ? (
+    voteResponse
+  ) : (
     <div id="comment-vote-buttons">
       <button
         onClick={() => {
@@ -40,7 +43,6 @@ export const CommentVoteButtons = ({ comment_id, setCurrComment }) => {
       >
         &#128078;
       </button>
-    </div> 
-    )
+    </div>
   )
 }
